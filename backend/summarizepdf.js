@@ -3,12 +3,17 @@ const multer = require('multer');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
+
 
 const router = express.Router();
 
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const genAI = new GoogleGenerativeAI("AIzaSyBkGYzhk3-s_Rj37moCQC1Ocx4UN2r_zQ8");
+const apiKey = process.env.GOOGLE_API_KEY;
+
+// Initialize Google Generative AI with the API key
+const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Set up Multer for file upload

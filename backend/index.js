@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 app.use('/api/summarize', summarizeRoutes); // Existing summarize route
 app.use('/api/summarizepdf', summarizePdfRoutes); // Add the new summarizepdf route
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
